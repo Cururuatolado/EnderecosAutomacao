@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processador de Endereços</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #enderecoInput {
+            width: 80%;
+            padding: 5px;
+            margin: 10px 0;
+        }
+        #output {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Processador de Endereços</h1>
+    <p>Insira os endereços abaixo (um por linha):</p>
+    <textarea id="enderecoInput" rows="5" placeholder="Cole os endereços aqui"></textarea>
+    <button onclick="processarEnderecos()">Processar</button>
+    <h2>Endereços Processados:</h2>
+    <div id="output"></div>
+
+    <script>
+        function processarEnderecos() {
+            const enderecoInput = document.getElementById('enderecoInput');
+            const outputDiv = document.getElementById('output');
+            const enderecos = enderecoInput.value.split('\n').map(e => e.trim()).filter(Boolean);
+
+            if (enderecos.length === 0) {
+                outputDiv.innerHTML = 'Nenhum endereço inserido.';
+                return;
+            }
+
+            outputDiv.innerHTML = 'Endereços Processados: ';
+            for (let i = 0; i < enderecos.length; i++) {
+                outputDiv.innerHTML += enderecos[i];
+                if (i < enderecos.length - 1){
+                    outputDiv.innerHTML += ', '
+                }
+            }
+        }
+    </script>
+</body>
+</html>
