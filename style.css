@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+#enderecoInput {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 0;
+}
+#output {
+    margin-top: 10px;
+}
+#modoSelect {
+    margin-top: 10px;
+    display: inline-block;
+}
