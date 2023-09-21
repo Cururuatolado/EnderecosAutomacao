@@ -2,23 +2,8 @@
 <html>
 <head>
     <title>Processador de Endereços</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #enderecoInput {
-            width: 80%;
-            padding: 5px;
-            margin: 10px 0;
-        }
-        #output {
-            margin-top: 10px;
-        }
-        #modoSelect {
-            margin-top: 10px;
-            display: inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <h1>Processador de Endereços</h1>
@@ -31,29 +16,5 @@
     <button onclick="processarEnderecos()">Processar</button>
     <h2>Endereços Processados:</h2> 
     <div id="output"></div>
-
-    <script>
-        function processarEnderecos() {
-            const enderecoInput = document.getElementById('enderecoInput');
-            const outputDiv = document.getElementById('output');
-            const modeSelect = document.getElementById('modoSelect');
-            const modo = modeSelect.value;
-            const enderecos = enderecoInput.value.split('\n').map(e => e.trim()).filter(Boolean);
-
-            if (enderecos.length === 0) {
-                outputDiv.innerHTML = 'Nenhum endereço inserido.';
-                return;
-            }
-
-            let output = 'Endereços Processados: ';
-            if (modo === 'uma-linha') {
-                output += enderecos.join(', ');
-            } else if (modo === 'por-coluna') {
-                output += ('<br>')
-                output +=  enderecos.join(', <br>');
-            }
-            outputDiv.innerHTML = output;
-        }
-    </script>
 </body>
 </html>
