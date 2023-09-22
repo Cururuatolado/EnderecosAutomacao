@@ -1,15 +1,5 @@
 
-planilha = """  
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39
-192.168.32.2/39""" #Adicione os endereços entre as aspas
+planilha = """  """ #Adicione os endereços entre as aspas
 
 
 planilha = planilha.strip().split('\n')
