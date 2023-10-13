@@ -19,3 +19,17 @@ function processarEnderecos() {
     }
     outputDiv.innerHTML = output;
 }
+
+function DarkMode () {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+
+    var botao = document.querySelector('.butao');
+
+    if (element.classList.contains('dark-mode')) {
+        botao.textContent = 'Modo claro';
+    } else {
+        botao.textContent = 'Modo escuro';
+    }
+}
+
