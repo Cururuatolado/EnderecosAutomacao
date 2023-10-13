@@ -1,11 +1,21 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #fff; /* Cor de fundo padrão para o modo claro */
+    color: #000; /* Cor do texto no modo claro */
 }
+
+.dark-mode {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Cor de fundo para o modo escuro */
+    color: #fff; /* Cor do texto no modo escuro */
+}
+
 #enderecoInput {
     width: 80%;
     padding: 5px;
     margin: 10px 0;
 }
+
 #output {
     margin-top: 10px;
 }
