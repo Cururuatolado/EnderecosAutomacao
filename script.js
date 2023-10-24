@@ -36,14 +36,18 @@ function Copiar() {
     var copyText = document.getElementById('output');
     var textoParaCopiar = copyText.textContent || copyText.innerText; 
 
-    var tempElement = document.createElement('textarea');
-    tempElement.value = textoParaCopiar;
-    document.body.appendChild(tempElement);
+    if (textoParaCopiar === 'Nenhum endereço inserido.' || ' ') {
+        alert('Insira um endereço')
+    } else {
+        var tempElement = document.createElement('textarea');
+        tempElement.value = textoParaCopiar;
+        document.body.appendChild(tempElement);
     
-    tempElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempElement);
+        tempElement.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempElement);
 
-    alert('Texto copiado');
+        alert('Texto copiado');
+    }
 }
 
