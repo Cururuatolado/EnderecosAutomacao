@@ -36,7 +36,7 @@ function Copiar() {
     var copyText = document.getElementById('output');
     var textoParaCopiar = copyText.textContent || copyText.innerText; 
 
-    if (textoParaCopiar === 'Nenhum endereço inserido.' || ' ') {
+    if (textoParaCopiar === 'Nenhum endereço inserido.') {
         alert('Insira um endereço')
     } else {
         var tempElement = document.createElement('textarea');
