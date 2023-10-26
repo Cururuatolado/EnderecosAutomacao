@@ -10,14 +10,18 @@ function processarEnderecos() {
         return;
     }
 
-    let output = ' ';
+   
+    let output = '';
     if (modo === 'uma-linha') {
-        output += enderecos.join(', ');
+        output = enderecos.join(', ');
     } else if (modo === 'por-coluna') {
-        output +=  enderecos.join(', <br>');
+        output = enderecos.map((endereco, index) => {
+            return index < enderecos.length - 1 ? endereco + ',' : endereco;
+        }).join('\n');
     }
-    outputDiv.innerHTML = output;
+    outputDiv.innerText = output;
 }
+
 
 function DarkMode () {
     var element = document.body;
@@ -34,13 +38,13 @@ function DarkMode () {
 
 function Copiar() {
     var copyText = document.getElementById('output');
-    var textoParaCopiar = copyText.textContent || copyText.innerText; 
+    var textoParaCopiar = copyText.innerText.replace(/<br>/g, '\n');
 
-    if (textoParaCopiar === 'Nenhum endereço inserido.') {
-        alert('Insira um endereço')
+    if (textoParaCopiar === '' || textoParaCopiar === 'Nenhum endereço inserido.') {
+        alert('Insira um endereço');
     } else {
         var tempElement = document.createElement('textarea');
-        tempElement.value = textoParaCopiar;
+        tempElement.innerHTML = textoParaCopiar;
         document.body.appendChild(tempElement);
     
         tempElement.select();
