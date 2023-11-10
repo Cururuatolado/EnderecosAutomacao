@@ -10,38 +10,46 @@ body {
     color: #fff;
 }
 
-h1 {
-    color: #000;
+#comparador {
+    color: #333;
 }
 
-.dark-mode h1 {
-    color: #fff;
-}
-
-#enderecoInput {
-    width: 80%;
-    padding: 5px;
-    margin: 10px 0;
+#tabela1 {
+    width: 100%;
+    margin-bottom: 10px;
     background-color: rgb(231, 231, 231);
 }
 
-.dark-mode #enderecoInput {
-    width: 80%;
-    padding: 5px;
-    margin: 10px 0;
+.dark-mode #tabela1 {
     background-color: #181818; 
     color: #fff; 
 }
-
-#modoSelect {
-    margin-top: 10px;
-    display: inline-block;
+#tabela2 {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgb(231, 231, 231);
 }
 
+.dark-mode #tabela2 {
+    background-color: #181818; 
+    color: #fff; 
+} 
 button {
     padding: 10px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.dark-mode #resultado {
+    border: 1px solid #303030;
+    background-color: #020202
 }
 
 .butao {
@@ -56,9 +64,9 @@ button {
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    position: absolute; 
-    top: 10px; 
-    right: 10px; 
+    position: absolute; /* Adicionado */
+    top: 10px; /* Adicionado */
+    right: 10px; /* Adicionado */
 }
 
 .dark-mode .butao {
@@ -78,7 +86,7 @@ button {
     border: 2px solid white;
 }
 
-.comparador-button {
+.Processar-endereco {
     position: absolute;
     top: 4px;
     right: 170px; 

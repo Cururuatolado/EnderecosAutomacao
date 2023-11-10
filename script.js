@@ -23,7 +23,7 @@ function processarEnderecos() {
 }
 
 
-function DarkMode () {
+function DarkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
 
@@ -31,10 +31,21 @@ function DarkMode () {
 
     if (element.classList.contains('dark-mode')) {
         botao.textContent = 'Modo claro';
+        localStorage.setItem('modoEscuro', 'ativado');
     } else {
         botao.textContent = 'Modo escuro';
+        localStorage.setItem('modoEscuro', 'desativado');
     }
 }
+
+// Verifica se o modo escuro estava ativado ao carregar a página
+document.addEventListener('DOMContentLoaded', function () {
+    const modoEscuroSalvo = localStorage.getItem('modoEscuro');
+    if (modoEscuroSalvo === 'ativado') {
+        DarkMode(); // Chama a função para ativar o modo escuro
+    }
+});
+
 
 function Copiar() {
     var copyText = document.getElementById('output');
@@ -55,3 +66,47 @@ function Copiar() {
     }
 }
 
+function VerificarIps() {
+    var tabela1 = document.getElementById('tabela1').value.split('\n');
+    var tabela2 = document.getElementById('tabela2').value.split('\n');
+
+    var ipsAusentesTabela1 = [];
+    var ipsAdicionaisTabela2 = [];
+
+    // Verifica os IPs ausentes na Tabela 2 em relação à Tabela 1
+    for (var i = 0; i < tabela1.length; i++) {
+        if (!tabela2.includes(tabela1[i])) {
+            ipsAusentesTabela1.push(tabela1[i]);
+        }
+    }
+
+    // Verifica os IPs adicionais na Tabela 2
+    for (var j = 0; j < tabela2.length; j++) {
+        if (!tabela1.includes(tabela2[j])) {
+            ipsAdicionaisTabela2.push(tabela2[j]);
+        }
+    }
+
+    exibirResultado(ipsAusentesTabela1, ipsAdicionaisTabela2);
+}
+
+function exibirResultado(ipsAusentesTabela1, ipsAdicionaisTabela2) {
+    var resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = '';  // Limpa o conteúdo anterior
+
+    if (ipsAusentesTabela1.length > 0) {
+        resultadoDiv.innerHTML += '<h2>IPs Ausentes na Rota dinâmica em relação à Rota estática:</h2>';
+        for (var i = 0; i < ipsAusentesTabela1.length; i++) {
+            resultadoDiv.innerHTML += ipsAusentesTabela1[i] + '<br>';
+        }
+    } else {
+        resultadoDiv.innerHTML += '<h2>Todos os IPs da Rota estática estão presentes na Rota dinâmica.</h2>';
+    }
+
+    if (ipsAdicionaisTabela2.length > 0) {
+        resultadoDiv.innerHTML += '<h2>IPs Adicionais na Rota dinâmica:</h2>';
+        for (var j = 0; j < ipsAdicionaisTabela2.length; j++) {
+            resultadoDiv.innerHTML += ipsAdicionaisTabela2[j] + '<br>';
+        }
+    }
+}
