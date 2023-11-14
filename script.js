@@ -67,9 +67,13 @@ function Copiar() {
 }
 
 function VerificarIps() {
-    var tabela1 = document.getElementById('tabela1').value.split('\n');
-    var tabela2 = document.getElementById('tabela2').value.split('\n');
-
+    var tabela1 = document.getElementById('tabela1').value.split('\n').map(function(ip) {
+        return ip.trim();
+    });
+    var tabela2 = document.getElementById('tabela2').value.split('\n').map(function(ip) {
+        return ip.trim();
+    });
+    
     var ipsAusentesTabela1 = [];
     var ipsAdicionaisTabela2 = [];
 
