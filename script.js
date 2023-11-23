@@ -73,7 +73,7 @@ function VerificarIps() {
     var tabela2 = document.getElementById('tabela2').value.split('\n').map(function(ip) {
         return ip.trim();
     });
-    
+
     var ipsAusentesTabela1 = [];
     var ipsAdicionaisTabela2 = [];
 
@@ -114,3 +114,27 @@ function exibirResultado(ipsAusentesTabela1, ipsAdicionaisTabela2) {
         }
     }
 }
+
+function AdicionarIp() {
+    var novoIp = document.getElementById('novoIp').value.trim();
+
+    if (novoIp === "") {
+        alert("Por favor, insira um IP válido.");
+        return;
+    }
+
+    // Adiciona o novo IP a cada elemento da rota estática
+    var tabela1 = document.getElementById('tabela1');
+    var rotaEstatica = tabela1.value.split('\n');
+    
+    for (var i = 0; i < rotaEstatica.length; i++) {
+        rotaEstatica[i] += ' ' + novoIp;
+    }
+
+    tabela1.value = rotaEstatica.join('\n');
+
+    // Chama a função de verificação novamente para atualizar o resultado
+    VerificarIps();
+}
+
+
